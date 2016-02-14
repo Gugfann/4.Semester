@@ -1,0 +1,17 @@
+V3 15
+FL C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.vhf 2016/02/14.20:33:47 P.20131013
+EN work/INV4_MXILINX_Seven_Seg_Driver 1455478436 \
+      FL C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/INV4_MXILINX_Seven_Seg_Driver/BEHAVIORAL 1455478437 \
+      FL C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.vhf \
+      EN work/INV4_MXILINX_Seven_Seg_Driver 1455478436 CP INV
+EN work/Seven_Seg_Driver 1455478438 \
+      FL C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/Seven_Seg_Driver/BEHAVIORAL 1455478439 \
+      FL C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.vhf \
+      EN work/Seven_Seg_Driver 1455478438 CP BUF CP INV4_MXILINX_Seven_Seg_Driver \
+      CP AND2 CP AND3 CP AND4 CP OR4 CP OR5 CP OR2 CP INV

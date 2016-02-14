@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="Karnaugh.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="Seven_Seg_Driver.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="Seven_Seg_Driver.cmd_log"/>
+    <file xil_pn:fileType="FILE_JHD" xil_pn:name="Seven_Seg_Driver.jhd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LOCKEDPIN_CONSTRAINTS" xil_pn:name="Seven_Seg_Driver.lpc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="Seven_Seg_Driver.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="Seven_Seg_Driver.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="Seven_Seg_Driver.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="Seven_Seg_Driver.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="Seven_Seg_Driver.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="Seven_Seg_Driver.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="Seven_Seg_Driver.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="Seven_Seg_Driver.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Seven_Seg_Driver.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="Seven_Seg_Driver.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="Seven_Seg_Driver.stx"/>
+    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="Seven_Seg_Driver.sym" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="Seven_Seg_Driver.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="Seven_Seg_Driver.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="Seven_Seg_Driver.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="Seven_Seg_Driver.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="Seven_Seg_Driver.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_VHDL" xil_pn:name="Seven_Seg_Driver.vhf"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="Seven_Seg_Driver.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="Seven_Seg_Driver.xst"/>
+    <file xil_pn:fileType="FILE_VHDL" xil_pn:name="Seven_Seg_Driver_drc.vhf"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="Seven_Seg_Driver_envsettings.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="Seven_Seg_Driver_fpga_editor.log"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="Seven_Seg_Driver_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="Seven_Seg_Driver_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="Seven_Seg_Driver_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="Seven_Seg_Driver_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="Seven_Seg_Driver_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Seven_Seg_Driver_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Seven_Seg_Driver_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="Seven_Seg_Driver_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="Seven_Seg_Driver_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Seven_Seg_Driver_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="Seven_Seg_Driver_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="Seven_Seg_Driver_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="Seven_Seg_Driver_usage.xml"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Seven_Seg_Driver_vhdl.prj"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Seven_Seg_Driver_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="seven_seg_driver.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="seven_seg_driver.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="seven_seg_driver.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1455412850" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1455412850">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1455478429" xil_pn:in_ck="71438918919642486" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="3723883108950211346" xil_pn:start_ts="1455478424">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.vhf"/>
+    </transform>
+    <transform xil_pn:end_ts="1455415526" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="3828599124541630623" xil_pn:start_ts="1455415526">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1455415526" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1455415526">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1455415526" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="8185357274358444304" xil_pn:start_ts="1455415526">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1455476549" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-3893270297158069842" xil_pn:start_ts="1455476549">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1455415526" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="5988342651267365865" xil_pn:start_ts="1455415526">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1455478452" xil_pn:in_ck="71438918919645916" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-5079782732322541035" xil_pn:start_ts="1455478429">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.jhd"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.lso"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.ngc"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.ngr"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.prj"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.stx"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.syr"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.xst"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_vhdl.prj"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1455477865" xil_pn:in_ck="5078817571116" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="4770241658127885356" xil_pn:start_ts="1455477865">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1455478469" xil_pn:in_ck="7364140500481964508" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-5711825198216312895" xil_pn:start_ts="1455478452">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.bld"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.ngd"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1455478479" xil_pn:in_ck="7364141906890582749" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-5849673150125579957" xil_pn:start_ts="1455478469">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.pcf"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_map.map"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_map.mrp"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_map.ncd"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_map.ngm"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_map.xrpt"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_summary.xml"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_usage.xml"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1455478510" xil_pn:in_ck="-5589426664586988682" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-3872219738485705569" xil_pn:start_ts="1455478479">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.ncd"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.pad"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.par"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.ptwx"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.unroutes"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.xpi"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_pad.csv"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_pad.txt"/>
+      <outfile xil_pn:name="Seven_Seg_Driver_par.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1455478535" xil_pn:in_ck="71438918919637037" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="2969983391363831627" xil_pn:start_ts="1455478510">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.ut"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="seven_seg_driver.bgn"/>
+      <outfile xil_pn:name="seven_seg_driver.bit"/>
+      <outfile xil_pn:name="seven_seg_driver.drc"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1455477228" xil_pn:in_ck="71438918919637037" xil_pn:name="TRAN_genLockedPinConstraints" xil_pn:start_ts="1455477222">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.lpc"/>
+    </transform>
+    <transform xil_pn:end_ts="1455478510" xil_pn:in_ck="7363956260952974937" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1455478502">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.twr"/>
+      <outfile xil_pn:name="Seven_Seg_Driver.twx"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+    </transform>
+  </transforms>
+
+</generated_project>

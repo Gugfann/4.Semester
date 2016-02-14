@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Kristian\Programmer\Xilinx\Karnaugh\Seven_Seg_Driver.ncd
+OUTFILE=C:\Kristian\Programmer\Xilinx\Karnaugh\Seven_Seg_Driver.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=C:\Kristian\Programmer\Xilinx\Karnaugh
+LICENSE=WebPack
+USER_INFO=211150094_0_0_253

@@ -1,0 +1,126 @@
+sch2sym -intstyle ise -family spartan3e -refsym Seven_Seg_Driver C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sym 
+sch2sym -intstyle ise -family spartan3e -refsym Seven_Seg_Driver C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sym 
+sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl Seven_Seg_Driver_drc.vhf -w C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch 
+sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl Seven_Seg_Driver_drc.vhf -w C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl Seven_Seg_Driver_drc.vhf -w C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch 
+sch2sym -intstyle ise -family spartan3e -refsym Seven_Seg_Driver C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sym 
+sch2sym -intstyle ise -family spartan3e -w -refsym Seven_Seg_Driver C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sym 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl Seven_Seg_Driver_drc.vhf -w C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl Seven_Seg_Driver_drc.vhf -w C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch 
+sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl Seven_Seg_Driver_drc.vhf -w C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch 
+sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl Seven_Seg_Driver_drc.vhf -w C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.sch 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -i -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+pin2ucf -o Seven_Seg_Driver_locked.ucf Seven_Seg_Driver.ncd 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -uc test.ucf -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf -ucf test.ucf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+pin2ucf -o Seven_Seg_Driver_locked.ucf Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -uc test.ucf -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf -ucf test.ucf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -uc test.ucf -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf -ucf test.ucf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 
+xst -intstyle ise -ifn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.xst" -ofn "C:/Kristian/Programmer/Xilinx/Karnaugh/Seven_Seg_Driver.syr" 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -uc test.ucf -p xc3s500e-fg320-4 Seven_Seg_Driver.ngc Seven_Seg_Driver.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ngd Seven_Seg_Driver.pcf 
+par -w -intstyle ise -ol high -t 1 Seven_Seg_Driver_map.ncd Seven_Seg_Driver.ncd Seven_Seg_Driver.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Seven_Seg_Driver.twx Seven_Seg_Driver.ncd -o Seven_Seg_Driver.twr Seven_Seg_Driver.pcf -ucf test.ucf 
+bitgen -intstyle ise -f Seven_Seg_Driver.ut Seven_Seg_Driver.ncd 

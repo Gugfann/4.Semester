@@ -1,0 +1,158 @@
+#:C69    
+#Xilinx FPGA Editor Command Log File
+#Editor Version:
+#:V   NT M2.1 P.20131013
+#Current Working Directory:
+#:D   C:\Kristian\Programmer\Xilinx\Karnaugh
+#Date/Time:
+#:T   Sun Feb 14 19:33:49 2016
+#------------------------------
+	#Reading Seven_Seg_Driver.ncd...
+	#Loading device for application Rf_Device from file '3s500e.nph' in environment C:\Kristian\Programmer\Xilinx\14.7\ISE_DS\ISE\.
+	#   "Seven_Seg_Driver" is an NCD, version 3.2, device xc3s500e, package fg320, speed -4
+	#Design creation date: 2016.02.14.18.30.59
+	#Building chip graphics...
+	#Loading speed info...
+	#1
+setattr main edit-mode no-logic-changes
+	#2
+select -k comp 'seg6'
+	#3
+unselect comp 'seg6'
+	#4
+select -k comp 'seg3'
+	#5
+unselect comp 'seg3'
+	#6
+select -k comp 'seg0_OBUF'
+	#7
+unselect comp 'seg0_OBUF'
+	#8
+select -k comp 'seg0'
+	#9
+unselect comp 'seg0'
+	#10
+select -k comp 'seg0_OBUF'
+	#11
+unselect comp 'seg0_OBUF'
+	#12
+select -k comp 'seg0'
+	#13
+unselect comp 'seg0'
+	#14
+select -k comp 'seg0_OBUF'
+	#15
+unselect comp 'seg0_OBUF'
+	#16
+select -k comp 'seg0'
+	#17
+unselect comp 'seg0'
+	#18
+select -k comp 'seg1'
+	#19
+unselect comp 'seg1'
+	#20
+select -k comp 'seg2'
+	#21
+unselect comp 'seg2'
+	#22
+select -k comp 'seg3'
+	#23
+unselect comp 'seg3'
+	#24
+select -k comp 'seg2'
+	#25
+hilite -c tan
+	#26
+unselect comp 'seg2'
+	#27
+select -k net 'sw4_IBUF'
+	#28
+unselect net 'sw4_IBUF'
+	#29
+select -k net 'sw5_IBUF'
+	#30
+unselect net 'sw5_IBUF'
+	#31
+select -k net 'sw6_IBUF'
+	#32
+unselect net 'sw6_IBUF'
+	#33
+select -k net 'sw7_IBUF'
+	#34
+unselect net 'sw7_IBUF'
+	#35
+select -k net 'sw6_IBUF'
+	#36
+unselect -all
+	#37
+select comp 'en2'
+	#comp "en2",  site "J4",  bonded type = IOB,  pad name = PAD207,  pin name = J4  (RPM grid X3Y55)
+	#38
+unselect comp 'en2'
+	#39
+select -k comp 'led2'
+	#40
+unselect comp 'led2'
+	#41
+select -k comp 'en3'
+	#42
+unselect comp 'en3'
+	#43
+select -k comp 'sw7'
+	#44
+unselect comp 'sw7'
+	#45
+select -k comp 'en3'
+	#46
+unselect comp 'en3'
+	#47
+select -k comp 'sw7'
+	#48
+unselect comp 'sw7'
+	#49
+select -k comp 'en3'
+	#50
+unselect comp 'en3'
+	#51
+select -k comp 'sw7'
+	#52
+unselect comp 'sw7'
+	#53
+select -k comp 'led2'
+	#54
+unselect comp 'led2'
+	#55
+select -k comp 'sw7'
+	#56
+unselect comp 'sw7'
+	#57
+select -k comp 'en3'
+	#58
+unselect comp 'en3'
+	#59
+select -k comp 'sw7'
+	#60
+unselect comp 'sw7'
+	#61
+select -k comp 'en3'
+	#62
+unselect comp 'en3'
+	#63
+select -k comp 'sw7'
+	#64
+unselect comp 'sw7'
+	#65
+select -k comp 'en3'
+	#66
+unselect comp 'en3'
+	#67
+select -k comp 'sw7'
+	#68
+unselect comp 'sw7'
+	#69
+select -k comp 'en3'
+	#70
+unselect comp 'en3'
+	#71
+select -k comp 'sw7'
