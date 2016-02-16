@@ -1,3 +1,5 @@
+###################################### Xilinx ISE Ignores ##############################################################
+
 # intermediate build files
 *.bgn
 *.bit
@@ -65,3 +67,40 @@ xlnx_auto_0_xdb/
 xst/
 _ngo/
 _xmsgs/
+
+########################################### Code Composer Ignores ###############################################################
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+/Debug/
+*.launch
