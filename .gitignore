@@ -102,5 +102,7 @@ _xmsgs/
 
 # Debug files
 *.dSYM/
-/Debug/
+.metadata/
+.launches/
+Debug/
 *.launch
