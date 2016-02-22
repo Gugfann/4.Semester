@@ -13,6 +13,8 @@ entity MuxDisplay_StartHelp is
            An :   out STD_LOGIC_VECTOR (3 downto 0));
 end MuxDisplay_StartHelp;
 
+-----------------------------------------------------------------------
+
 architecture Behavioral of MuxDisplay_StartHelp is
 	signal Counter: STD_LOGIC_VECTOR (35 downto 0) := X"123456789";
 	signal Cnt2bit: STD_LOGIC_VECTOR ( 1 downto 0) := "00";
@@ -30,12 +32,12 @@ begin
 	
 	Segm <= abcdefg & '1';  -- & Decimal Point 
 	
---	TestCounter: process( Clk)  -- Remove the comments to use
---	begin
---		if rising_edge(Clk) then
---			Counter <= Counter+1;
---		end if;
---	end process;
+	TestCounter: process( Clk)  -- Remove the comments to use
+	begin
+		if rising_edge(Clk) then
+			Counter <= Counter+1;			
+		end if;
+	end process;
 
    ScaleProcess: PROCESS( Clk, Sw)
 		variable Scale_count: integer range 0 to 50000000 := 0;
@@ -64,7 +66,7 @@ begin
 			ScaleCnt <= Scale_count;
 		end if;
 	end process;
-	
+		
    -- Multiplexer for the Hex selection -----------------------------
 	with Cnt2bit select
 	Hex <=     Counter( n+15 downto n+12) when "11",

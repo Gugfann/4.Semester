@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2016-02-14T20:13:49</DateModified>
+  <DateModified>2016-02-16T12:28:35</DateModified>
   <ModuleName>Seven_Seg_Driver</ModuleName>
   <SummaryTimeStamp>2016-02-14T20:13:48</SummaryTimeStamp>
-  <SavedFilePath>C:/Kristian/Programmer/Xilinx/Karnaugh/iseconfig/Seven_Seg_Driver.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Kristian/Programmer/Xilinx/Karnaugh\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/Kristian/Documents/Github/Repositories/4. Semester/Mit/DIG/Projects/Karnaugh/iseconfig/Seven_Seg_Driver.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Kristian/Documents/Github/Repositories/4. Semester/Mit/DIG/Projects/Karnaugh\</ImplementationReportsDirectory>
   <DateInitialized>2016-02-14T02:52:13</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
