@@ -23,22 +23,14 @@
 /***************************** Include files *******************************/
 #include "emp_type.h"
 /*****************************    Defines    *******************************/
-// Device Types
-// ------------
-//
-// LED devices
-// -----------
-//
+
 #define LED_STATUS 	11
 #define LED_RED		21
 #define LED_YELLOW	22
 #define LED_GREEN	23
 //
-//
-// Device actions
-// --------------
-//
-// LED actions
+
+// LCD actions
 // ----------
 //
 #define TURN_LED_ON		1

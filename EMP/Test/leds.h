@@ -24,9 +24,9 @@
 
 /*****************************    Defines    *******************************/
 
-#define RED_TOGGLE_TIME		700
-#define YELLOW_TOGGLE_TIME	225
-#define GREEN_TOGGLE_TIME	50
+#define RED_TOGGLE_TIME		400
+#define YELLOW_TOGGLE_TIME	300
+#define GREEN_TOGGLE_TIME	250
 
 /*****************************   Constants   *******************************/
 

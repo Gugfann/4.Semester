@@ -29,6 +29,7 @@
 #include "messages.h"
 #include "devices.h"
 #include "leds.h"
+#include "lcd.h"
 /*****************************    Defines    *******************************/
 
 /*****************************   Constants   *******************************/
@@ -56,6 +57,8 @@ int main(void)
   init_led_timers();
   enable_global_int();
 
+  init_lcd_screen(); // uses the timer for initialization
+
   // Loop forever.
   while(1)
   {
@@ -78,7 +81,8 @@ int main(void)
 
     // Application mode
     button_task( TASK_BUTTON );
-    flash_task( TASK_FLASHING_LEDS );
+    //flash_task( TASK_FLASHING_LEDS );
+    lcd_task( TASK_LCD );
 
 
   }

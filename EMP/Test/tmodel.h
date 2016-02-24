@@ -22,10 +22,11 @@
 
 // Tasks.
 // ------
-#define TASK_SW_TIMERS 11
-#define TASK_MAIN 12
-#define TASK_BUTTON 13
-#define TASK_FLASHING_LEDS 14
+#define TASK_SW_TIMERS 			11
+#define TASK_MAIN 				12
+#define TASK_BUTTON 			13
+#define TASK_FLASHING_LEDS 		14
+#define TASK_LCD 				15
 
 // Interrupt Service Routines.
 // ---------------------------
@@ -43,11 +44,11 @@
 #define SEB_TO_YELLOW_LED 	44 // Time Out
 #define SEB_TO_GREEN_LED	45
 
-// Traffic Light Modes.
-// --------------------
-#define MM_TLIGHT   1
-#define MM_REDLIGHT 2
-#define MM_FLASH    3
+// Display to LCD task Shared Event Buffer
+// ---------------------------------------
+#define SEB_COMMAND_LCD		46 //
+#define SEB_DATA_LCD		47
+
 
 // Software Timers.
 // ----------------
