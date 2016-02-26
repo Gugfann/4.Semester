@@ -54,7 +54,6 @@ void init_gpio(void)
   GPIO_PORTF_DEN_R = 0x1F;
   GPIO_PORTD_DEN_R = 0x4C;
   GPIO_PORTC_DEN_R = 0xF0;
-  GPIO_PORTC_DEN_R &= 0xF0;
 
   // Enable internal pull-up (PF0 and PF4).
   GPIO_PORTF_PUR_R = 0x11;

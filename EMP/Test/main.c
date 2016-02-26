@@ -82,7 +82,9 @@ int main(void)
     // Application mode
     button_task( TASK_BUTTON );
     //flash_task( TASK_FLASHING_LEDS );
+    display_task( TASK_DISPLAY );
     lcd_task( TASK_LCD );
+    //init_lcd_screen();
 
 
   }

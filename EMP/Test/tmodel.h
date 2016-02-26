@@ -26,7 +26,8 @@
 #define TASK_MAIN 				12
 #define TASK_BUTTON 			13
 #define TASK_FLASHING_LEDS 		14
-#define TASK_LCD 				15
+#define TASK_DISPLAY			15
+#define TASK_LCD 				16
 
 // Interrupt Service Routines.
 // ---------------------------
@@ -46,8 +47,9 @@
 
 // Display to LCD task Shared Event Buffer
 // ---------------------------------------
-#define SEB_COMMAND_LCD		46 //
-#define SEB_DATA_LCD		47
+#define SEB_CMD_LCD		50 //
+#define SEB_DATA_LCD		51
+#define SEB_TO_LCD			52
 
 
 // Software Timers.
@@ -56,5 +58,6 @@
 #define ST_RED_LED    	2
 #define ST_YELLOW_LED   3
 #define ST_GREEN_LED	4
+#define ST_LCD			5
 
 #endif /* _TMODEL_H_ */
