@@ -21,7 +21,6 @@
 #include <stdint.h>
 #include "tm4c123gh6pm.h"
 #include "emp_type.h"
-#include "devices.h"
 #include "lcd.h"
 #include "tmodel.h"
 #include "messages.h"

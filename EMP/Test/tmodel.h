@@ -47,7 +47,7 @@
 
 // Display to LCD task Shared Event Buffer
 // ---------------------------------------
-#define SEB_CMD_LCD		50 //
+#define SEB_CMD_LCD			50 //
 #define SEB_DATA_LCD		51
 #define SEB_TO_LCD			52
 
