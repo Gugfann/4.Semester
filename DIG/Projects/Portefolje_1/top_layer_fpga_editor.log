@@ -1,0 +1,80 @@
+#:C29    
+#Xilinx FPGA Editor Command Log File
+#Editor Version:
+#:V   NT M2.1 P.20131013
+#Current Working Directory:
+#:D   C:\Users\Kristian\Documents\Github\Repositories\4. Semester\Mit\DIG\Projects\Portefolje_1
+#Date/Time:
+#:T   Wed Mar 09 23:05:36 2016
+#------------------------------
+	#Reading top_layer.ncd...
+	#Loading device for application Rf_Device from file '3s500e.nph' in environment C:\Kristian\Programmer\Xilinx\14.7\ISE_DS\ISE\.
+	#   "top_layer" is an NCD, version 3.2, device xc3s500e, package fg320, speed -4
+	#Design creation date: 2016.03.09.22.03.59
+	#Building chip graphics...
+	#Loading speed info...
+	#1
+setattr main edit-mode no-logic-changes
+	#2
+select -k cst 'COMP "clk" LOCATE = SITE "B8" LEVEL 1'
+	#3
+unselect cst 'COMP "clk" LOCATE = SITE "B8" LEVEL 1'
+	#4
+select -k cst 'COMP "btn" LOCATE = SITE "B18" LEVEL 1'
+	#5
+unselect cst 'COMP "btn" LOCATE = SITE "B18" LEVEL 1'
+	#6
+select -k net 'XLXI_4/state_1_mux00008/O'
+	#7
+hilite -c turquoise
+	#8
+unselect net 'XLXI_4/state_1_mux00008/O'
+	#9
+select -k net 'XLXI_4/state_1_mux000021'
+	#10
+hilite -c teal
+	#11
+unselect net 'XLXI_4/state_1_mux000021'
+	#12
+select -k net 'XLXI_4/state_1_mux000022/O'
+	#13
+unselect net 'XLXI_4/state_1_mux000022/O'
+	#14
+select -k net 'XLXI_3/clk_divider<0>'
+	#15
+hilite -c violet
+	#16
+unselect net 'XLXI_3/clk_divider<0>'
+	#17
+select -k net 'XLXI_3/clk_divider<0>/ProtoComp0.C1VDD.1'
+	#18
+hilite -c whitesmoke
+	#19
+hilite -c tan
+	#20
+unselect -all
+	#21
+select site 'SLICE_X21Y80'
+	#site "SLICE_X21Y80",  type = SLICEL  (RPM grid X47Y82)
+	#22
+unselect site 'SLICE_X21Y80'
+	#23
+select -k net 'XLXI_3/clk_divider<1>'
+	#24
+hilite -c tomato
+	#25
+unselect net 'XLXI_3/clk_divider<1>'
+	#26
+select -k net 'XLXI_3/clk_divider<4>'
+	#27
+unselect net 'XLXI_3/clk_divider<4>'
+	#28
+select -k net 'XLXI_3/clk_divider<3>'
+	#29
+unselect net 'XLXI_3/clk_divider<3>'
+	#30
+select -k net 'XLXI_3/clk_divider<2>'
+	#31
+unselect net 'XLXI_3/clk_divider<2>'
+	#32
+select -k net 'XLXI_3/clk_divider<6>'

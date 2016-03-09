@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/Kristian/Documents/Github/Repositories/4. Semester/Mit/DIG/Projects/Portefolje_1/tb_toggle_button_isim_beh.exe" -prj "C:/Users/Kristian/Documents/Github/Repositories/4. Semester/Mit/DIG/Projects/Portefolje_1/tb_toggle_button_beh.prj" "work.tb_toggle_button" 
