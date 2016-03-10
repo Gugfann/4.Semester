@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : top_layer.vhf
--- /___/   /\     Timestamp : 03/09/2016 23:03:36
+-- /___/   /\     Timestamp : 03/10/2016 23:27:12
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -26,13 +26,28 @@ library UNISIM;
 use UNISIM.Vcomponents.ALL;
 
 entity top_layer is
-   port ( btn    : in    std_logic; 
+   port ( btn    : in    std_logic_vector (3 downto 0); 
           clk    : in    std_logic; 
+          An     : out   std_logic_vector (3 downto 0); 
+          LED    : out   std_logic_vector (7 downto 0); 
+          segm   : out   std_logic_vector (7 downto 0); 
           toggle : out   std_logic);
 end top_layer;
 
 architecture BEHAVIORAL of top_layer is
-   signal XLXN_4 : std_logic;
+   signal bcd_1_10               : std_logic_vector (7 downto 0);
+   signal latch                  : std_logic;
+   signal XLXN_83                : std_logic;
+   signal XLXN_92                : std_logic_vector (3 downto 0);
+   signal XLXN_93                : std_logic;
+   signal XLXN_100               : std_logic;
+   signal XLXN_106               : std_logic_vector (7 downto 0);
+   signal XLXN_107               : std_logic_vector (7 downto 0);
+   signal XLXN_108               : std_logic_vector (15 downto 0);
+   signal toggle_DUMMY           : std_logic;
+   signal XLXI_7_clr_openSignal  : std_logic;
+   signal XLXI_23_clr_openSignal : std_logic;
+   signal XLXI_24_clr_openSignal : std_logic;
    component clk_1khz
       port ( clk      : in    std_logic; 
              clk_1khz : out   std_logic);
@@ -46,17 +61,103 @@ architecture BEHAVIORAL of top_layer is
              pulse    : out   std_logic);
    end component;
    
+   component mux_display
+      port ( clk      : in    std_logic; 
+             bcd      : in    std_logic_vector (15 downto 0); 
+             dp       : in    std_logic_vector (3 downto 0); 
+             segments : out   std_logic_vector (7 downto 0); 
+             an       : out   std_logic_vector (3 downto 0));
+   end component;
+   
+   component cnt999
+      port ( clk : in    std_logic; 
+             clr : in    std_logic; 
+             en  : in    std_logic; 
+             co  : out   std_logic; 
+             bcd : out   std_logic_vector (3 downto 0));
+   end component;
+   
+   component cnt59
+      port ( clk : in    std_logic; 
+             clr : in    std_logic; 
+             en  : in    std_logic; 
+             co  : out   std_logic; 
+             bcd : out   std_logic_vector (7 downto 0));
+   end component;
+   
+   component teenth_sec
+      port ( bcd : in    std_logic_vector (3 downto 0); 
+             lcd : out   std_logic_vector (7 downto 0));
+   end component;
+   
+   component lap_time_latch
+      port ( latch   : in    std_logic; 
+             bcd1_10 : in    std_logic_vector (7 downto 0); 
+             bcd_sec : in    std_logic_vector (7 downto 0); 
+             bcd_min : in    std_logic_vector (7 downto 0); 
+             leds    : out   std_logic_vector (7 downto 0); 
+             bcd     : out   std_logic_vector (15 downto 0));
+   end component;
+   
 begin
+   toggle <= toggle_DUMMY;
    XLXI_3 : clk_1khz
       port map (clk=>clk,
-                clk_1khz=>XLXN_4);
+                clk_1khz=>XLXN_100);
    
    XLXI_4 : toggle_button
-      port map (btn=>btn,
-                clk=>XLXN_4,
+      port map (btn=>btn(0),
+                clk=>XLXN_100,
                 debounce=>open,
                 pulse=>open,
-                toggle=>toggle);
+                toggle=>toggle_DUMMY);
+   
+   XLXI_6 : mux_display
+      port map (bcd(15 downto 0)=>XLXN_108(15 downto 0),
+                clk=>XLXN_100,
+                dp(3 downto 0)=>btn(3 downto 0),
+                an(3 downto 0)=>An(3 downto 0),
+                segments(7 downto 0)=>segm(7 downto 0));
+   
+   XLXI_7 : cnt999
+      port map (clk=>XLXN_100,
+                clr=>XLXI_7_clr_openSignal,
+                en=>toggle_DUMMY,
+                bcd(3 downto 0)=>XLXN_92(3 downto 0),
+                co=>XLXN_93);
+   
+   XLXI_23 : cnt59
+      port map (clk=>XLXN_100,
+                clr=>XLXI_23_clr_openSignal,
+                en=>XLXN_93,
+                bcd(7 downto 0)=>XLXN_107(7 downto 0),
+                co=>XLXN_83);
+   
+   XLXI_24 : cnt59
+      port map (clk=>XLXN_100,
+                clr=>XLXI_24_clr_openSignal,
+                en=>XLXN_83,
+                bcd(7 downto 0)=>XLXN_106(7 downto 0),
+                co=>open);
+   
+   XLXI_26 : teenth_sec
+      port map (bcd(3 downto 0)=>XLXN_92(3 downto 0),
+                lcd(7 downto 0)=>bcd_1_10(7 downto 0));
+   
+   XLXI_29 : toggle_button
+      port map (btn=>btn(1),
+                clk=>XLXN_100,
+                debounce=>open,
+                pulse=>open,
+                toggle=>latch);
+   
+   XLXI_30 : lap_time_latch
+      port map (bcd_min(7 downto 0)=>XLXN_106(7 downto 0),
+                bcd_sec(7 downto 0)=>XLXN_107(7 downto 0),
+                bcd1_10(7 downto 0)=>bcd_1_10(7 downto 0),
+                latch=>latch,
+                bcd(15 downto 0)=>XLXN_108(15 downto 0),
+                leds(7 downto 0)=>LED(7 downto 0));
    
 end BEHAVIORAL;
 

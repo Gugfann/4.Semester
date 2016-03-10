@@ -1,0 +1,8 @@
+[Inputs]
+clk
+clr
+en
+[Outputs]
+co
+=bcd[7:0]=
+[BiDir]

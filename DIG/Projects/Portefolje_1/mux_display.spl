@@ -1,0 +1,8 @@
+[Inputs]
+clk
+=bcd[15:0]=
+=dp[3:0]=
+[Outputs]
+=segments[7:0]=
+=an[3:0]=
+[BiDir]

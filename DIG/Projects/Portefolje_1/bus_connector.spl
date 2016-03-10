@@ -1,0 +1,6 @@
+[Inputs]
+=low[7:0]=
+=high[7:0]=
+[Outputs]
+=combine[15:0]=
+[BiDir]
