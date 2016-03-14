@@ -265,7 +265,7 @@ void update_time()
 {
 	INT8U hour = (current_input[0] - '0') * 10  + (current_input[1] - '0');
 	INT8U min = (current_input[2] - '0') * 10 + (current_input[3] - '0');
-	INT8U sec = (current_input[3] - '0') * 10 + (current_input[4] - '0');
+	INT8U sec = (current_input[4] - '0') * 10 + (current_input[5] - '0');
 
 	put_msg_state(SSM_RTC_HOUR, hour);
 	put_msg_state(SSM_RTC_MIN, min);
