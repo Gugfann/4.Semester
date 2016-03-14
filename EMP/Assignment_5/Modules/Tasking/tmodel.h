@@ -32,7 +32,7 @@
 #define TASK_LCD 				16
 #define TASK_RTC				17
 #define TASK_UART0				18
-#define TASK_UI					19
+#define TASK_UI					9
 #define TASK_NUMPAD				20
 
 // Interrupt Service Routines.
@@ -68,6 +68,7 @@
 #define SEB_TO_RTC			54
 
 
-#define Q_LCD				USER_QUEUE
+#define Q_INPUT				USER_QUEUE
+#define Q_LCD				USER_QUEUE+1
 
 #endif /* _TMODEL_H_ */

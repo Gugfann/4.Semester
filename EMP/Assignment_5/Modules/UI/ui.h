@@ -34,8 +34,13 @@
 
 void ui_task(INT8U my_id, INT8U my_state, INT8U event, INT8U data);
 
-void numpad();
+void reset_input();
 
+INT8U find_command();
+
+void set_time(INT8U *character);
+
+void update_time();
 /****************************** End Of Module *******************************/
 #endif
 

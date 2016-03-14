@@ -34,45 +34,247 @@
 
 /*****************************   Variables   *******************************/
 
-extern struct Queue uart0_rx_queue;
-extern struct Queue numpad_input_queue;
+enum ui_states
+{
+	WAIT,
+	DECODING,
+	SET_TIME,
+	UPDATE_TIME,
+	INITIAL_STATE
+};
+
+INT8U cmd_array[3][16] = {
+		{'1','2'},
+		{'2','2'},
+		{'1','1'}
+};
+
+INT8U input_iterator = 0;
+
+INT8U current_input[16];
+
+extern INT8U current_task;
 
 /*****************************   Functions   *******************************/
 
-void ui_task(INT8U my_id, INT8U my_state, INT8U event, INT8U data)
+void ui_task(INT8U my_id, INT8U my_state, INT8U my_event, INT8U my_data)
 {
-
-	if( !my_state )
+	INT8U received; //queue_get(&numpad_input_queue);
+	if(get_queue(Q_INPUT,&received,0) || my_event)
 	{
-		if ( numpad_input_queue.length )
-			set_state(NUMPAD_HANDLER);
+		//put_msg_event(SEB_PRINT, received);
+		switch(my_state)
+		{
+//			case INITIAL_STATE:
+//				set_state( WAIT );
+//				wait( 100 );
+//				break;
 
-		if ( get_msg_event(SEB_UART_RX) )
-			set_state(UART_HANDLER);
-	}
+			case WAIT:
+				if(received == '*')
+				{
+					set_state( DECODING );
+					put_msg_event(SEB_PRINT, received);
+				}
+				break;
 
-	switch(my_state)
-	{
-		case NUMPAD_HANDLER:
-			numpad();
-			break;
+			case DECODING:
+				if(input_iterator > 15)
+				{
+					reset_input();
+					put_msg_event(SEB_PRINT, '?');
+				}
 
-		case UART_HANDLER:
-			break;
+				current_input[input_iterator++] = received;
+
+				if(received == '#')
+				{
+					current_input[input_iterator - 1] = 0;
+					INT8U cmd = find_command();
+					switch(cmd)
+					{
+						case 0:
+							reset_input();
+							put_msg_event(SEB_PRINT, '#');
+							set_state( SET_TIME );
+							break;
+
+						default:
+							reset_input();
+							put_msg_event(SEB_PRINT, '?');
+					}
+				}
+				else
+					put_msg_event(SEB_PRINT, received);
+				break;
+
+			case SET_TIME:
+				set_time(&received);
+				break;
+
+			case UPDATE_TIME:
+//				update_time();
+//				set_state( WAIT );
+//				reset_input();
+//				put_msg_event(SEB_PRINT, '#');
+//				set_event( EVENT_NONE );
+				break;
+
+			default:
+				break;
+		}
 	}
 }
 
-void numpad()
+void reset_input()
 {
-	INT8U received = queue_get(&numpad_input_queue);
-	put_msg_event(SEB_PRINT, received);
+	input_iterator = 0;
 
-//	if(received == '*')
-//		put_msg_event(SEB_PRINT, COMMAND_INTERFACE);
-//	if(received == '#')
-//		put_msg_event(SEB_PRINT, received);
+	for(int i = 0; i < 16; i++)
+	{
+		current_input[i] = 0;
+	}
+}
 
-	wait( 10 );
+INT8U find_command()
+{
+	INT8S result = -1;
+
+	for(int i = 0; i < 3; i++)
+	{
+		for(int j = 0; j < 16; j++)
+		{
+			if(cmd_array[i][j] != current_input[j])
+				break;
+
+			if(j == 15)
+				result = i;
+		}
+
+		if( result >= 0)
+			break;
+	}
+	return( result );
+}
+
+void set_time(INT8U *character)
+
+{
+	if(*character == '*')
+	{
+		put_msg_event(SEB_PRINT, '*');
+		reset_input();
+		set_state( DECODING );
+	}
+	else
+	{
+		switch(input_iterator)
+		{
+			case 0:
+				if(*character - '0' < 3 && *character - '0' >= 0)
+				{
+					put_msg_event(SEB_PRINT, *character);
+					current_input[input_iterator++] = *character;
+				}
+				else
+				{
+					put_msg_event(SEB_PRINT, '?');
+					reset_input();
+				}
+				break;
+
+			case 1:
+				if ( *character - '0' < 10 && *character - '0' >= 0 )
+				{
+					put_msg_event(SEB_PRINT, *character);
+					current_input[input_iterator++] = *character;
+				}
+				else
+				{
+					put_msg_event(SEB_PRINT, '?');
+					reset_input();
+				}
+				break;
+
+			case 2:
+				if ( *character - '0' < 6 && *character - '0' >= 0 )
+				{
+					put_msg_event(SEB_PRINT, *character);
+					current_input[input_iterator++] = *character;
+				}
+				else
+				{
+					put_msg_event(SEB_PRINT, '?');
+					reset_input();
+				}
+				break;
+
+			case 3:
+				if ( *character - '0' < 10 && *character - '0' >= 0 )
+				{
+					put_msg_event(SEB_PRINT, *character);
+					current_input[input_iterator++] = *character;
+				}
+				else
+				{
+					put_msg_event(SEB_PRINT, '?');
+					reset_input();
+				}
+				break;
+
+			case 4:
+				if ( *character - '0' < 6 && *character - '0' >= 0 )
+				{
+					put_msg_event(SEB_PRINT, *character);
+					current_input[input_iterator++] = *character;
+				}
+				else
+				{
+					put_msg_event(SEB_PRINT, '?');
+					reset_input();
+				}
+				break;
+
+			case 5:
+				if ( *character - '0' < 10 && *character - '0' >= 0 )
+				{
+					put_msg_event(SEB_PRINT, *character);
+					current_input[input_iterator++] = *character;
+				}
+				else
+				{
+					put_msg_event(SEB_PRINT, '?');
+					reset_input();
+				}
+				break;
+
+			default:
+				//wait_sem(SEM_TIME_ACCESS, 0);
+				//set_state( UPDATE_TIME );
+				if(*character == '#')
+				{
+					put_msg_event(SEB_PRINT, *character);
+					update_time();
+					set_state( WAIT );
+				}
+		}
+	}
+}
+
+void update_time()
+{
+	INT8U hour = (current_input[0] - '0') * 10  + (current_input[1] - '0');
+	INT8U min = (current_input[2] - '0') * 10 + (current_input[3] - '0');
+	INT8U sec = (current_input[3] - '0') * 10 + (current_input[4] - '0');
+
+	put_msg_state(SSM_RTC_HOUR, hour);
+	put_msg_state(SSM_RTC_MIN, min);
+	put_msg_state(SSM_RTC_SEC, sec);
+
+	//signal( SEM_TIME_ACCESS);
+	signal( SEM_RTC_UPDATED);
+
+	reset_input();
 }
 /****************************** End Of Module *******************************/
 

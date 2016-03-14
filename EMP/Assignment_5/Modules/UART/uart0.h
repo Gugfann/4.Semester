@@ -90,6 +90,8 @@ void UART0_rx_isr();
 
 void UART0_tx_isr();
 
+void UART0_task(INT8U my_id, INT8U my_state, INT8U my_event, INT8U my_data);
+
 /****************************** End Of Module *******************************/
 #endif
 

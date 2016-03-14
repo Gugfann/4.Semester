@@ -25,9 +25,7 @@
 #include "Modules/EMP/emp_type.h"
 
 /*****************************    Defines    *******************************/
-#define SHOW_CLOCK			1
-#define USER_INPUT			2
-#define COMMAND_INTERFACE	3
+
 
 // LCD Commands
 
@@ -57,10 +55,14 @@ void display_task( INT8U my_id, INT8U my_state, INT8U event, INT8U data );
 //   Output   : -
 //   Function : Manage LCD commands to make the correct output
 
-void opening_msg();
+void command_msg();
 //   Input    : -
 //   Output   : -
 //   Function : Display startup message on LCD screen
+
+void time_prompt();
+
+void error_msg();
 
 void show_clock();
 //   Input    : -

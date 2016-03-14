@@ -24,6 +24,7 @@
 #include <Numpad/Numpad.h>
 #include <UART/uart0.h>
 #include <Queue/Queue.h>
+#include <Tasking/tmodel.h>
 #include "RTCS/rtcs.h"
 
 /*****************************    Defines    *******************************/
@@ -127,40 +128,52 @@ void numpad_task(INT8U my_id, INT8U my_state, INT8U event, INT8U data)
 				if (button_state & (1 << i)) {
 					switch (i) {
 					case NUMPAD_ZERO:
-						queue_put(&numpad_input_queue,'0');
+						put_queue(Q_INPUT,'0',0);
+						//queue_put(&numpad_input_queue,'0');
 						break;
 					case NUMPAD_ONE:
-						queue_put(&numpad_input_queue,'1');
+						put_queue(Q_INPUT,'1',0);
+						//queue_put(&numpad_input_queue,'1');
 						break;
 					case NUMPAD_TWO:
-						queue_put(&numpad_input_queue,'2');
+						put_queue(Q_INPUT,'2',0);
+						//queue_put(&numpad_input_queue,'2');
 						break;
 					case NUMPAD_THREE:
-						queue_put(&numpad_input_queue,'3');
+						put_queue(Q_INPUT,'3',0);
+						//queue_put(&numpad_input_queue,'3');
 						break;
 					case NUMPAD_FOUR:
-						queue_put(&numpad_input_queue,'4');
+						put_queue(Q_INPUT,'4',0);
+						//queue_put(&numpad_input_queue,'4');
 						break;
 					case NUMPAD_FIVE:
-						queue_put(&numpad_input_queue,'5');
+						put_queue(Q_INPUT,'5',0);
+						//queue_put(&numpad_input_queue,'5');
 						break;
 					case NUMPAD_SIX:
-						queue_put(&numpad_input_queue,'6');
+						put_queue(Q_INPUT,'6',0);
+						//queue_put(&numpad_input_queue,'6');
 						break;
 					case NUMPAD_SEVEN:
-						queue_put(&numpad_input_queue,'7');
+						put_queue(Q_INPUT,'7',0);
+						//queue_put(&numpad_input_queue,'7');
 						break;
 					case NUMPAD_EIGHT:
-						queue_put(&numpad_input_queue,'8');
+						put_queue(Q_INPUT,'8',0);
+						//queue_put(&numpad_input_queue,'8');
 						break;
 					case NUMPAD_NINE:
-						queue_put(&numpad_input_queue,'9');
+						put_queue(Q_INPUT,'9',0);
+						//queue_put(&numpad_input_queue,'9');
 						break;
 					case NUMPAD_HASH:
-						queue_put(&numpad_input_queue,'#');
+						put_queue(Q_INPUT,'#',0);
+						//queue_put(&numpad_input_queue,'#');
 						break;
 					case NUMPAD_STAR:
-						queue_put(&numpad_input_queue,'*');
+						put_queue(Q_INPUT,'*',0);
+						//queue_put(&numpad_input_queue,'*');
 						break;
 					default:
 						break;

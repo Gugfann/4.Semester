@@ -104,6 +104,11 @@ extern void set_state(INT8U new_state)
 	pot[current_task].state = new_state;
 }
 
+extern void set_event( INT8U new_event )
+{
+	pot[current_task].event = new_event;
+}
+
 extern void wait(INT16U timeout)
 /*****************************************************************************
  *   Function : See module specification (.h-file).

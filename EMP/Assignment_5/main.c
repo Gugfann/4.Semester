@@ -56,6 +56,7 @@ int main(void)
 //   Output   : -
 //   Function : main function. Runs the init function and then loops
 
+
 {
 	//Initialization
 	disable_global_int();
@@ -72,12 +73,14 @@ int main(void)
 	numpad_init();
 
 	open_queue(Q_LCD);
+	open_queue(Q_INPUT);
 
 	start_task( TASK_RTC, RTC_task);
 	start_task( TASK_DISPLAY, display_task);
 	start_task( TASK_LCD, LCD_task);
 	start_task( TASK_NUMPAD, numpad_task);
 	start_task( TASK_UI, ui_task);
+	start_task( TASK_UART0, UART0_task);
 
 	schedule();
 

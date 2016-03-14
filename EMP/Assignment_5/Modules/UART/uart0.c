@@ -26,6 +26,7 @@
 #include <Tasking/tmodel.h>
 #include <Tasking/messages.h>
 #include <Queue/Queue.h>
+#include <RTCS/rtcs.h>
 /*****************************    Defines    *******************************/
 
 /*****************************   Constants   *******************************/
@@ -128,8 +129,20 @@ void UART0_rx_isr()
 {
 	do
 	{
+		//INT8U received = UART0_DR_R;
+		//put_queue(Q_INPUT,received,0);
 		queue_put(&uart0_rx_queue, UART0_DR_R);
 	} while (RX_FIFO_NOT_EMPTY);
+}
+
+void UART0_task(INT8U my_id, INT8U my_state, INT8U my_event, INT8U my_data)
+{
+	while(uart0_rx_queue.length > 0)
+	{
+		INT8U contents = queue_get(&uart0_rx_queue);
+
+		put_queue(Q_INPUT, contents, 0);
+	}
 }
 
 extern void UART0_init( INT32U baud_rate, INT8U databits, INT8U stopbits, INT8U parity )

@@ -38,44 +38,124 @@
 /*****************************   Variables   *******************************/
 extern struct Queue display_lcd_queue;
 
+enum display_states
+{
+	INITIAL_STATE,
+	ENTER_COMMAND,
+	ENTER_TIME,
+	SHOW_CLOCK,
+	ERROR_CMD,
+	ERROR_TIME
+};
+
+INT8U iterator = 0;
+
 /*****************************   Functions   *******************************/
 
-void display_task( INT8U my_id, INT8U my_state, INT8U event, INT8U data )
+void display_task( INT8U my_id, INT8U my_state, INT8U my_event, INT8U data )
 {
-	INT8U event2 = get_msg_event(SEB_PRINT);
+	INT8U event = get_msg_event(SEB_PRINT);
 
 	switch (my_state)
 	{
-	case 0:
-		set_state( USER_INPUT );  // default state
-		opening_msg();
+	case INITIAL_STATE:
+		//command_msg();
+		write_cmd(LCD_CMD_CLEAR_SCREEN);
+		write_cmd(LCD_CMD_DISPLAY_ON);
+		set_state( SHOW_CLOCK );  // default state
+
+	case ENTER_COMMAND:
+
+		if(event)
+		{
+			switch(event)
+			{
+				case '*':
+					write_cmd(LCD_CMD_CLEAR_SCREEN);
+					command_msg();
+					break;
+
+				case '#':
+					set_state( ENTER_TIME );
+					write_cmd(LCD_CMD_CLEAR_SCREEN);
+					time_prompt();
+					break;
+
+				case '?':
+					set_state( ERROR_CMD );
+					write_cmd(LCD_CMD_CLEAR_SCREEN);
+					error_msg();
+					wait( 300 );
+					break;
+
+				default:
+					write_data(event);
+					break;
+			}
+		}
 		break;
 
 	case SHOW_CLOCK:
 
-//		if(event2 == COMMAND_INTERFACE)
-//			set_state( COMMAND_INTERFACE );
 		show_clock();
 		wait_sem(SEM_RTC_UPDATED, 0);
 
+		if(event == '*')
+		{
+			set_state( ENTER_COMMAND );
+			write_cmd(LCD_CMD_CLEAR_SCREEN);
+			command_msg();
+		}
+
 		break;
 
-	case USER_INPUT:
+	case ENTER_TIME:
 
-		if(event2)
+		if(event)
 		{
-			if(event2 == '#')
+			switch(event)
 			{
-				write_cmd(LCD_CMD_CLEAR_SCREEN);
-				write_cmd(LCD_CMD_DISPLAY_ON);
-				set_state( SHOW_CLOCK );
-				wait ( 10 );
+				case '#':
+					set_state( SHOW_CLOCK );
+					write_cmd(LCD_CMD_CLEAR_SCREEN);
+					write_cmd(LCD_CMD_DISPLAY_ON);
+					iterator = 0;
+					break;
+
+				case '*':
+					set_state( ENTER_COMMAND );
+					write_cmd(LCD_CMD_CLEAR_SCREEN);
+					command_msg();
+					break;
+
+				case '?':
+					set_state( ERROR_TIME );
+					write_cmd(LCD_CMD_CLEAR_SCREEN);
+					error_msg();
+					wait( 300 );
+					break;
+
+				default:
+					write_data(event);
+					if(iterator == 1 || iterator == 3)
+						write_cmd(LCD_CMD_CURSOR_SHIFT_R);
+					iterator++;
+					break;
 			}
-			else
-			{
-				write_data(event2);
-			}
+
 		}
+		break;
+
+	case ERROR_CMD:
+		set_state( ENTER_COMMAND );
+		write_cmd(LCD_CMD_CLEAR_SCREEN);
+		command_msg();
+		break;
+
+	case ERROR_TIME:
+		set_state( ENTER_TIME );
+		write_cmd(LCD_CMD_CLEAR_SCREEN);
+		time_prompt();
 		break;
 
 
@@ -85,16 +165,41 @@ void display_task( INT8U my_id, INT8U my_state, INT8U event, INT8U data )
 	}
 }
 
-void opening_msg()
+void error_msg()
+{
+	set_cursor(1,0);
+	INT8U besked[13]= {'I','n','v','a','l','i','d',' ','i','n','p','u','t'};
+	run_sequence(besked,13);
+
+	set_cursor(2,1);
+	INT8U besked2[12]= {'T','r','y',' ','a','g','a','i','n','.','.','.'};
+	run_sequence(besked2,12);
+}
+
+
+
+void command_msg()
 {
 	set_cursor(0,0);
-
-	INT8U besked[]= {'E','n','t','e','r',' ','c','o','m','m','a','n','d',':'};
-
+	INT8U besked[14]= {'E','n','t','e','r',' ','c','o','m','m','a','n','d',':'};
 	run_sequence(besked,14);
 
 	set_cursor(0,1);
+	write_cmd(LCD_CMD_BLINK_ON);
+}
 
+void time_prompt()
+{
+	INT8U besked[13]= {'S','e','t',' ','t','h','e',' ','t','i','m','e',':'};
+	set_cursor(0,0);
+
+	run_sequence(besked,13);
+
+	set_cursor(4,1);
+
+	INT8U besked2[8]= {'h','h',':','m','m',':','s','s'};
+	run_sequence(besked2,8);
+	set_cursor(4,1);
 	write_cmd(LCD_CMD_BLINK_ON);
 }
 
@@ -110,7 +215,6 @@ void show_clock()
 	if( sec & 0x01)
 		colon = ' ';
 
-	write_cmd(LCD_CMD_CLEAR_SCREEN);
 	set_cursor(4,0);
 
 	write_data(hour / 10 + '0');
@@ -125,8 +229,9 @@ void show_clock()
 
 	write_data(sec / 10 + '0');
 	write_data(sec % 10 + '0');
+	set_cursor(4,0);
 
-
+	wait_sem(SEM_RTC_UPDATED, 0);
 
 }
 

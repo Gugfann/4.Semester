@@ -168,26 +168,26 @@ void LCD_Set_Cursor(INT8U address)
 		LCD_Write( address | 0x80 , CMD_MODE);
 }
 
-void LCD_task(INT8U my_id, INT8U my_state, INT8U event, INT8U data)
+void LCD_task(INT8U my_id, INT8U my_state, INT8U my_event, INT8U my_data)
 {
 	static INT8U selector = 0;
-	static INT8U my_mode = 0;
-	static INT8U my_data = 0;
+	static INT8U mode = 0;
+	static INT8U data = 0;
 
 	INT8U received;
 	if(get_queue(Q_LCD,&received,0))
 	{
 		selector++;
-		if(selector % 2)
-			my_mode = received;
+		if(selector % 2)		// mode og data kommer skiftevis
+			mode = received;
 		else
-			my_data = received;
+			data = received;
 
-		if(my_data && my_mode)
+		if(!(selector % 2))
 		{
-			LCD_Write( my_data, my_mode );
-			my_data = 0;
-			my_mode = 0;
+			LCD_Write( data, mode );
+			data = 0;
+			mode = 0;
 		}
 	}
 
