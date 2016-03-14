@@ -41,6 +41,7 @@ extern struct Queue numpad_input_queue;
 
 void ui_task(INT8U my_id, INT8U my_state, INT8U event, INT8U data)
 {
+
 	if( !my_state )
 	{
 		if ( numpad_input_queue.length )
@@ -65,8 +66,9 @@ void numpad()
 {
 	INT8U received = queue_get(&numpad_input_queue);
 	put_msg_event(SEB_PRINT, received);
-//	if(received == '1')
-//		put_msg_event(SEB_PRINT, received);
+
+//	if(received == '*')
+//		put_msg_event(SEB_PRINT, COMMAND_INTERFACE);
 //	if(received == '#')
 //		put_msg_event(SEB_PRINT, received);
 

@@ -26,8 +26,8 @@ architecture Behavioral of lap_time_latch is
 
 begin
 
-	bcd 	<= bcd_min & bcd_sec when latch = '1'; 			
-	leds 	<= bcd1_10 when latch = '1';
+	bcd 	<= bcd_min & bcd_sec when latch = '0'; 			
+	leds 	<= bcd1_10 when latch = '0';
 				
 --	next_bcd <= bcd_min & bcd_sec when latch = '1';
 --	next_leds <= bcd1_10 when latch = '1';

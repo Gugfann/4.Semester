@@ -170,14 +170,35 @@ void LCD_Set_Cursor(INT8U address)
 
 void LCD_task(INT8U my_id, INT8U my_state, INT8U event, INT8U data)
 {
-	INT8U test = display_lcd_queue.length;
-	if(test)
-	{
-		INT8U mode = queue_get(&display_lcd_queue);
-		INT8U data = queue_get(&display_lcd_queue);
+	static INT8U selector = 0;
+	static INT8U my_mode = 0;
+	static INT8U my_data = 0;
 
-		LCD_Write( data, mode );
+	INT8U received;
+	if(get_queue(Q_LCD,&received,0))
+	{
+		selector++;
+		if(selector % 2)
+			my_mode = received;
+		else
+			my_data = received;
+
+		if(my_data && my_mode)
+		{
+			LCD_Write( my_data, my_mode );
+			my_data = 0;
+			my_mode = 0;
+		}
 	}
+
+//	INT8U test = display_lcd_queue.length;
+//	if(test)
+//	{
+//		INT8U mode = queue_get(&display_lcd_queue);
+//		INT8U data = queue_get(&display_lcd_queue);
+//
+//		LCD_Write( data, mode );
+//	}
 
 }
 

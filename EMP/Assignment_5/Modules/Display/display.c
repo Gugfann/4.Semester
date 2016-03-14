@@ -52,8 +52,12 @@ void display_task( INT8U my_id, INT8U my_state, INT8U event, INT8U data )
 		break;
 
 	case SHOW_CLOCK:
+
+//		if(event2 == COMMAND_INTERFACE)
+//			set_state( COMMAND_INTERFACE );
 		show_clock();
 		wait_sem(SEM_RTC_UPDATED, 0);
+
 		break;
 
 	case USER_INPUT:
@@ -74,6 +78,7 @@ void display_task( INT8U my_id, INT8U my_state, INT8U event, INT8U data )
 		}
 		break;
 
+
 	default:
 		// you dun goofed
 		break;
@@ -84,15 +89,11 @@ void opening_msg()
 {
 	set_cursor(0,0);
 
-	INT8U besked1[]= {'F','o','r',' ','t','i','d',',',' ','t','r','y','k'};
+	INT8U besked[]= {'E','n','t','e','r',' ','c','o','m','m','a','n','d',':'};
 
-	run_sequence(besked1,13);
+	run_sequence(besked,14);
 
 	set_cursor(0,1);
-
-	INT8U besked2[]= {'"','#','"',':',};
-
-	run_sequence(besked2,3);
 
 	write_cmd(LCD_CMD_BLINK_ON);
 }
@@ -109,6 +110,7 @@ void show_clock()
 	if( sec & 0x01)
 		colon = ' ';
 
+	write_cmd(LCD_CMD_CLEAR_SCREEN);
 	set_cursor(4,0);
 
 	write_data(hour / 10 + '0');
@@ -124,6 +126,8 @@ void show_clock()
 	write_data(sec / 10 + '0');
 	write_data(sec % 10 + '0');
 
+
+
 }
 
 void set_cursor(INT8U x, INT8U y)
@@ -138,14 +142,18 @@ void set_cursor(INT8U x, INT8U y)
 
 void write_data(INT8U data)
 {
-	queue_put( &display_lcd_queue , DATA_MODE);
-	queue_put( &display_lcd_queue , data);
+	put_queue(Q_LCD,DATA_MODE,0);
+	put_queue(Q_LCD,data,0);
+//	queue_put( &display_lcd_queue , DATA_MODE);
+//	queue_put( &display_lcd_queue , data);
 }
 
 void write_cmd(INT8U cmd)
 {
-	queue_put( &display_lcd_queue , CMD_MODE);
-	queue_put( &display_lcd_queue , cmd);
+	put_queue(Q_LCD,CMD_MODE,0);
+	put_queue(Q_LCD,cmd,0);
+//	queue_put( &display_lcd_queue , CMD_MODE);
+//	queue_put( &display_lcd_queue , cmd);
 }
 
 void run_sequence(INT8U array[], INT8U size)

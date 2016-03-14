@@ -71,6 +71,8 @@ int main(void)
 	queue_init(&uart0_rx_queue);
 	numpad_init();
 
+	open_queue(Q_LCD);
+
 	start_task( TASK_RTC, RTC_task);
 	start_task( TASK_DISPLAY, display_task);
 	start_task( TASK_LCD, LCD_task);

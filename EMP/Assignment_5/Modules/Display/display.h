@@ -27,6 +27,7 @@
 /*****************************    Defines    *******************************/
 #define SHOW_CLOCK			1
 #define USER_INPUT			2
+#define COMMAND_INTERFACE	3
 
 // LCD Commands
 

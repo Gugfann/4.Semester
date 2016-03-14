@@ -68,14 +68,6 @@
 #define SEB_TO_RTC			54
 
 
-
-// Software Timers.
-// ----------------
-#define ST_BUTTON   	1
-#define ST_RED_LED    	2
-#define ST_YELLOW_LED   3
-#define ST_GREEN_LED	4
-#define ST_LCD			5
-#define ST_RTC			6
+#define Q_LCD				USER_QUEUE
 
 #endif /* _TMODEL_H_ */

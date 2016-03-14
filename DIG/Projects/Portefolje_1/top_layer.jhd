@@ -4,6 +4,8 @@ MODULE top_layer
 	SUBMODULE toggle_button
 		INSTANCE XLXI_29
 	SUBMODULE toggle_button
+		INSTANCE XLXI_31
+	SUBMODULE toggle_button
 		INSTANCE XLXI_4
 	SUBMODULE mux_display
 		INSTANCE XLXI_6

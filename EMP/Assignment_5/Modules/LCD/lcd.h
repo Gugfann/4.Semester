@@ -42,8 +42,8 @@
 #define LCD_DEFAULT_POSITION		0x04
 
 // Wtite modes
-#define CMD_MODE					0
-#define DATA_MODE					1
+#define CMD_MODE					1
+#define DATA_MODE					2
 
 
 /*****************************   Constants   *******************************/
