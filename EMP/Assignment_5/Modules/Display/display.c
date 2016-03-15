@@ -88,6 +88,13 @@ void display_task( INT8U my_id, INT8U my_state, INT8U my_event, INT8U data )
 					wait( 300 );
 					break;
 
+				case '¤':
+					set_state( SHOW_CLOCK );
+					write_cmd(LCD_CMD_CLEAR_SCREEN);
+					write_cmd(LCD_CMD_DISPLAY_ON);
+					show_clock();
+					break;
+
 				default:
 					write_data(event);
 					break;
@@ -132,6 +139,7 @@ void display_task( INT8U my_id, INT8U my_state, INT8U my_event, INT8U data )
 					set_state( ERROR_TIME );
 					write_cmd(LCD_CMD_CLEAR_SCREEN);
 					error_msg();
+					iterator = 0;
 					wait( 300 );
 					break;
 

@@ -27,6 +27,7 @@
 #include <Queue/Queue.h>
 #include <Tasking/messages.h>
 #include <Tasking/events.h>
+#include <RTCS/rtcs.h>
 #include "ui.h"
 /*****************************    Defines    *******************************/
 
@@ -86,26 +87,40 @@ void ui_task(INT8U my_id, INT8U my_state, INT8U my_event, INT8U my_data)
 				}
 
 				current_input[input_iterator++] = received;
-
-				if(received == '#')
+				switch(received)
 				{
-					current_input[input_iterator - 1] = 0;
-					INT8U cmd = find_command();
-					switch(cmd)
-					{
-						case 0:
-							reset_input();
-							put_msg_event(SEB_PRINT, '#');
-							set_state( SET_TIME );
-							break;
+					case '#':
+						current_input[input_iterator - 1] = 0;
+						INT8U cmd = find_command();
+						switch(cmd)
+						{
+							case 0:
+								reset_input();
+								put_msg_event(SEB_PRINT, '#');
+								set_state( SET_TIME );
+								break;
 
-						default:
-							reset_input();
-							put_msg_event(SEB_PRINT, '?');
-					}
+							case 1:
+								reset_input();
+								put_msg_event(SEB_PRINT, '¤');
+								set_state( WAIT );
+								break;
+
+							default:
+								reset_input();
+								put_msg_event(SEB_PRINT, '?');
+						}
+						break;
+
+					case '*':
+						reset_input();
+						put_msg_event(SEB_PRINT, '*');
+						break;
+
+					default:
+						put_msg_event(SEB_PRINT, received);
+						break;
 				}
-				else
-					put_msg_event(SEB_PRINT, received);
 				break;
 
 			case SET_TIME:
@@ -113,11 +128,11 @@ void ui_task(INT8U my_id, INT8U my_state, INT8U my_event, INT8U my_data)
 				break;
 
 			case UPDATE_TIME:
-//				update_time();
-//				set_state( WAIT );
-//				reset_input();
-//				put_msg_event(SEB_PRINT, '#');
-//				set_event( EVENT_NONE );
+				update_time();
+				set_state( WAIT );
+				reset_input();
+				put_msg_event(SEB_PRINT, '#');
+				set_event( EVENT_NONE );
 				break;
 
 			default:
@@ -184,7 +199,12 @@ void set_time(INT8U *character)
 				break;
 
 			case 1:
-				if ( *character - '0' < 10 && *character - '0' >= 0 )
+				if ( *character - '0' < 4 && *character - '0' >= 0 )
+				{
+					put_msg_event(SEB_PRINT, *character);
+					current_input[input_iterator++] = *character;
+				}
+				else if ( *character - '0' < 10 && *character - '0' >= 0 && current_input[0] - '0' < 2 )
 				{
 					put_msg_event(SEB_PRINT, *character);
 					current_input[input_iterator++] = *character;
@@ -253,10 +273,17 @@ void set_time(INT8U *character)
 				//set_state( UPDATE_TIME );
 				if(*character == '#')
 				{
-					put_msg_event(SEB_PRINT, *character);
-					update_time();
-					set_state( WAIT );
+					if(wait_sem(SEM_TIME_ACCESS, 0))
+					{
+						put_msg_event(SEB_PRINT, *character);
+						update_time();
+						set_state( WAIT );
+						signal( SEM_TIME_ACCESS );
+					}
+					else
+						set_state( UPDATE_TIME );
 				}
+				break;
 		}
 	}
 }
