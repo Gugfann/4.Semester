@@ -257,16 +257,12 @@ void write_data(INT8U data)
 {
 	put_queue(Q_LCD,DATA_MODE,0);
 	put_queue(Q_LCD,data,0);
-//	queue_put( &display_lcd_queue , DATA_MODE);
-//	queue_put( &display_lcd_queue , data);
 }
 
 void write_cmd(INT8U cmd)
 {
 	put_queue(Q_LCD,CMD_MODE,0);
 	put_queue(Q_LCD,cmd,0);
-//	queue_put( &display_lcd_queue , CMD_MODE);
-//	queue_put( &display_lcd_queue , cmd);
 }
 
 void run_sequence(INT8U array[], INT8U size)

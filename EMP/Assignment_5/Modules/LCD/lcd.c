@@ -190,15 +190,7 @@ void LCD_task(INT8U my_id, INT8U my_state, INT8U my_event, INT8U my_data)
 			mode = 0;
 		}
 	}
-
-//	INT8U test = display_lcd_queue.length;
-//	if(test)
-//	{
-//		INT8U mode = queue_get(&display_lcd_queue);
-//		INT8U data = queue_get(&display_lcd_queue);
-//
-//		LCD_Write( data, mode );
-//	}
+	wait( 1 );
 
 }
 
