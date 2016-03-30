@@ -12,7 +12,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity teenth_sec is
     Port ( bcd : in  STD_LOGIC_VECTOR (3 downto 0);
-           lcd : out  STD_LOGIC_VECTOR (7 downto 0));
+           led : out  STD_LOGIC_VECTOR (7 downto 0));
 end teenth_sec;
 
 architecture Behavioral of teenth_sec is
@@ -20,7 +20,7 @@ architecture Behavioral of teenth_sec is
 begin
 
 with bcd select
-	lcd <=	"00000000" when "0000",
+	led <=	"00000000" when "0000",
 				"00000001" when "0001",
 				"00000011" when "0010",
 				"00000111" when "0011",

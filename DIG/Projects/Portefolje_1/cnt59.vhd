@@ -12,8 +12,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity cnt59 is
-    Port ( ci : in STD_LOGIC;
-			  clk : in  STD_LOGIC;
+    Port ( clk : in  STD_LOGIC;
            clr : in  STD_LOGIC;
            en : in  STD_LOGIC;
            co : out  STD_LOGIC;
@@ -30,19 +29,24 @@ begin
 	bcd (7 downto 4) 		<= std_logic_vector(counter_h);
 	bcd (3 downto 0) 		<= std_logic_vector(counter_l);
 	
-count: process(clk)
+count: process(clk,clr)
+		variable carry: std_logic := '0';
 	begin
-		if rising_edge(clk) then
-			co <= '0';
-			
+		if clr = '1' then
+			counter_l 	<= "0000";
+			counter_h 	<= "0000";
+				
+		elsif rising_edge(clk) then
+			carry := '0';
+				
 			if en = '1' then		
-			
+		
 				if counter_l = "1001" then
 					counter_l <= "0000";
 					
 					if counter_h = "0101" then
 						counter_h 	<= "0000";
-						co				<= '1';
+						carry			:= '1';
 					else
 						counter_h <= counter_h + 1;
 					end if;
@@ -51,13 +55,12 @@ count: process(clk)
 					counter_l <= counter_l + 1;
 				end if;
 				
-				if clr = '1' then
-					counter_l 	<= "0000";
-					counter_h 	<= "0000";
-				end if;
+
 				
 			end if;
 		end if;
+		
+		co <= carry;
 	end process;
 	
 end Behavioral;

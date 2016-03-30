@@ -22,22 +22,17 @@ end toggle_button;
 architecture Behavioral of toggle_button is
 
 signal state: std_logic_vector (2 downto 0) := "000";
-signal s_reg: unsigned (9 downto 0) := "0000000000";
+signal s_reg: std_logic_vector (9 downto 0) := "0000000000";
+
 		
 begin
 
 btn_states: process(clk)
-		variable temp: unsigned(9 downto 0);
 	begin
 		if rising_edge(clk) then
-		
-			temp := s_reg;
+	
+			s_reg <= s_reg(8 downto 0) & btn;
 			
-			temp := temp SLL 1;
-			if btn = '1' then
-				temp := temp + 1;
-			end if;
-					
 			case state is
 				when "000" => 
 					if btn = '1' and s_reg = "0000000000" then
@@ -76,9 +71,6 @@ btn_states: process(clk)
 					
 			end case;
 		end if;
-		
-		s_reg <= temp;
-		
 	end process;
 
 toggle 	<= state(2);

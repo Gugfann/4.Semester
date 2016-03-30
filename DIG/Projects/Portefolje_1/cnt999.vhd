@@ -26,17 +26,22 @@ architecture Behavioral of cnt999 is
 
 begin
 
-count: process(clk,clr,en)
+count: process(clk,clr)
 		variable next_bcd: unsigned (3 downto 0) := "0000";
+		variable carry: std_logic := '0';
 	begin
-		if rising_edge(clk) then
-			co <= '0';
+		if clr = '1' then
+			next_bcd := "0000";
+				
+		elsif rising_edge(clk) then
+			carry := '0';
+			
 			if en = '1' then
 				if counter = 99 then
 					counter <= 0;
 					 
 					if next_bcd = "1001" then
-							co 			<= '1';
+							carry			:= '1';
 							next_bcd 	:= "0000";
 					else							
 							next_bcd		:= next_bcd + 1;
@@ -46,15 +51,12 @@ count: process(clk,clr,en)
 					counter <= counter + 1;
 				end if;
 
-				if clr = '1' then
-					next_bcd := "0000";
-					co			<= '0';	
-				end if;
+
 			end if;
 		end if;
 		
 		bcd <= std_logic_vector(next_bcd);
-		
+		co <= carry;
 	end process;
 
 end Behavioral;

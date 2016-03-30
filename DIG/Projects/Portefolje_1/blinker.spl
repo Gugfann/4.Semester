@@ -1,0 +1,7 @@
+[Inputs]
+start_stop
+lap_time
+half_sec
+[Outputs]
+=dp[3:0]=
+[BiDir]

@@ -53,7 +53,7 @@ NET "sw1<7>" LOC = "R17"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = SW
 
 # Buttons
 
-NET "btn<0>" LOC = "B18"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN0
-NET "btn<1>" LOC = "D18"; # Bank = 1, Pin name = IP/VREF_1, Type = VREF, Sch name = BTN1
-NET "btn<2>" LOC = "E18"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN2
+NET "start" LOC = "B18"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN0
+NET "lap" LOC = "D18"; # Bank = 1, Pin name = IP/VREF_1, Type = VREF, Sch name = BTN1
+NET "clear_time" LOC = "E18"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN2
 NET "btn<3>" LOC = "H13"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN3

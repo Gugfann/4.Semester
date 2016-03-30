@@ -21,17 +21,10 @@ end lap_time_latch;
 
 architecture Behavioral of lap_time_latch is
 
-	signal next_bcd: std_logic_vector (15 downto 0) := X"0000";
-	signal next_leds: std_logic_vector (7 downto 0) := X"00";
-
 begin
 
 	bcd 	<= bcd_min & bcd_sec when latch = '0'; 			
-	leds 	<= bcd1_10 when latch = '0';
-				
---	next_bcd <= bcd_min & bcd_sec when latch = '1';
---	next_leds <= bcd1_10 when latch = '1';
-		
+	leds 	<= bcd1_10 when latch = '0';		
 	
 end Behavioral;
 
