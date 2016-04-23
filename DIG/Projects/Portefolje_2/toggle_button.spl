@@ -1,0 +1,8 @@
+[Inputs]
+clk
+btn
+[Outputs]
+toggle
+debounce
+pulse
+[BiDir]
