@@ -1,0 +1,9 @@
+[Inputs]
+clk
+start
+=rand_no[12:0]=
+[Outputs]
+reset_timer
+start_timer
+=LED[7:0]=
+[BiDir]
