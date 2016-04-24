@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : bcd_cnt_4x1.vhf
--- /___/   /\     Timestamp : 04/23/2016 23:35:46
+-- /___/   /\     Timestamp : 04/24/2016 16:07:39
 -- \   \  /  \ 
 --  \___\/\___\ 
 --

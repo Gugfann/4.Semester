@@ -1,5 +1,6 @@
 [Inputs]
 clk
+reset
 start
 =rand_no[12:0]=
 [Outputs]

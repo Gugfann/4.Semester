@@ -10,8 +10,6 @@
         <signal name="seg(7:0)" />
         <signal name="An(3:0)" />
         <signal name="start" />
-        <signal name="clear_time" />
-        <signal name="lap" />
         <signal name="XLXN_27(3:0)" />
         <signal name="rand(31:0)" />
         <signal name="XLXN_56(15:0)" />
@@ -21,13 +19,16 @@
         <signal name="XLXN_69" />
         <signal name="XLXN_75" />
         <signal name="XLXN_76" />
+        <signal name="reset" />
+        <signal name="highscore" />
+        <signal name="res" />
         <port polarity="Output" name="seg(7:0)" />
         <port polarity="Output" name="An(3:0)" />
         <port polarity="Input" name="start" />
-        <port polarity="Input" name="clear_time" />
-        <port polarity="Input" name="lap" />
         <port polarity="Input" name="CLK" />
         <port polarity="Output" name="LED(7:0)" />
+        <port polarity="Input" name="reset" />
+        <port polarity="Input" name="highscore" />
         <blockdef name="toggle_button">
             <timestamp>2016-4-23T12:23:52</timestamp>
             <rect width="256" x="64" y="-192" height="192" />
@@ -78,7 +79,8 @@
             <line x2="384" y1="-160" y2="-160" x1="320" />
         </blockdef>
         <blockdef name="reaction_tester">
-            <timestamp>2016-4-23T21:10:25</timestamp>
+            <timestamp>2016-4-24T14:5:41</timestamp>
+            <line x2="0" y1="96" y2="96" x1="64" />
             <line x2="384" y1="32" y2="32" x1="320" />
             <line x2="0" y1="-160" y2="-160" x1="64" />
             <line x2="0" y1="-96" y2="-96" x1="64" />
@@ -87,7 +89,7 @@
             <line x2="384" y1="-160" y2="-160" x1="320" />
             <rect width="64" x="320" y="-44" height="24" />
             <line x2="384" y1="-32" y2="-32" x1="320" />
-            <rect width="256" x="64" y="-192" height="256" />
+            <rect width="256" x="64" y="-192" height="320" />
         </blockdef>
         <block symbolname="mux_display" name="XLXI_4">
             <blockpin signalname="betty" name="clk" />
@@ -109,14 +111,14 @@
         </block>
         <block symbolname="toggle_button" name="XLXI_2">
             <blockpin signalname="betty" name="clk" />
-            <blockpin signalname="clear_time" name="btn" />
+            <blockpin signalname="reset" name="btn" />
             <blockpin name="toggle" />
-            <blockpin name="debounce" />
+            <blockpin signalname="res" name="debounce" />
             <blockpin name="pulse" />
         </block>
         <block symbolname="toggle_button" name="XLXI_3">
             <blockpin signalname="betty" name="clk" />
-            <blockpin signalname="lap" name="btn" />
+            <blockpin signalname="highscore" name="btn" />
             <blockpin name="toggle" />
             <blockpin name="debounce" />
             <blockpin name="pulse" />
@@ -139,13 +141,14 @@
             <blockpin signalname="XLXN_75" name="enable" />
             <blockpin signalname="XLXN_56(15:0)" name="bcd(15:0)" />
         </block>
-        <block symbolname="reaction_tester" name="XLXI_22">
+        <block symbolname="reaction_tester" name="XLXI_24">
             <blockpin signalname="betty" name="clk" />
             <blockpin signalname="XLXN_69" name="start" />
             <blockpin signalname="rand(24:12)" name="rand_no(12:0)" />
+            <blockpin signalname="XLXN_76" name="reset_timer" />
             <blockpin signalname="XLXN_75" name="start_timer" />
             <blockpin signalname="LED(7:0)" name="LED(7:0)" />
-            <blockpin signalname="XLXN_76" name="reset_timer" />
+            <blockpin signalname="res" name="reset" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -168,15 +171,7 @@
         <branch name="start">
             <wire x2="592" y1="608" y2="608" x1="352" />
         </branch>
-        <branch name="clear_time">
-            <wire x2="592" y1="928" y2="928" x1="352" />
-        </branch>
-        <branch name="lap">
-            <wire x2="592" y1="1248" y2="1248" x1="352" />
-        </branch>
         <iomarker fontsize="28" x="352" y="608" name="start" orien="R180" />
-        <iomarker fontsize="28" x="352" y="928" name="clear_time" orien="R180" />
-        <iomarker fontsize="28" x="352" y="1248" name="lap" orien="R180" />
         <branch name="XLXN_27(3:0)">
             <wire x2="2592" y1="448" y2="448" x1="2512" />
         </branch>
@@ -230,9 +225,9 @@
         </branch>
         <iomarker fontsize="28" x="3056" y="1536" name="LED(7:0)" orien="R0" />
         <branch name="XLXN_69">
-            <wire x2="992" y1="608" y2="608" x1="976" />
-            <wire x2="992" y1="608" y2="1472" x1="992" />
-            <wire x2="1648" y1="1472" y2="1472" x1="992" />
+            <wire x2="1200" y1="608" y2="608" x1="976" />
+            <wire x2="1200" y1="608" y2="1472" x1="1200" />
+            <wire x2="1648" y1="1472" y2="1472" x1="1200" />
         </branch>
         <instance x="1664" y="1120" name="XLXI_19" orien="R0">
         </instance>
@@ -250,7 +245,23 @@
             <wire x2="2480" y1="800" y2="1600" x1="2480" />
             <wire x2="2480" y1="1600" y2="1600" x1="2032" />
         </branch>
-        <instance x="1648" y="1568" name="XLXI_22" orien="R0">
+        <branch name="reset">
+            <wire x2="592" y1="928" y2="928" x1="352" />
+        </branch>
+        <branch name="highscore">
+            <wire x2="592" y1="1248" y2="1248" x1="352" />
+        </branch>
+        <iomarker fontsize="28" x="352" y="928" name="reset" orien="R180" />
+        <iomarker fontsize="28" x="352" y="1248" name="highscore" orien="R180" />
+        <instance x="1648" y="1568" name="XLXI_24" orien="R0">
         </instance>
+        <branch name="res">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="1040" y="864" type="branch" />
+            <wire x2="1040" y1="864" y2="864" x1="976" />
+        </branch>
+        <branch name="res">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="1600" y="1664" type="branch" />
+            <wire x2="1648" y1="1664" y2="1664" x1="1600" />
+        </branch>
     </sheet>
 </drawing>

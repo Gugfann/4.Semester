@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Top_layer.vhf
--- /___/   /\     Timestamp : 04/23/2016 23:35:46
+-- /___/   /\     Timestamp : 04/24/2016 16:08:38
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -84,23 +84,24 @@ library UNISIM;
 use UNISIM.Vcomponents.ALL;
 
 entity Top_layer is
-   port ( clear_time : in    std_logic; 
-          CLK        : in    std_logic; 
-          lap        : in    std_logic; 
-          start      : in    std_logic; 
-          An         : out   std_logic_vector (3 downto 0); 
-          LED        : out   std_logic_vector (7 downto 0); 
-          seg        : out   std_logic_vector (7 downto 0));
+   port ( CLK       : in    std_logic; 
+          highscore : in    std_logic; 
+          reset     : in    std_logic; 
+          start     : in    std_logic; 
+          An        : out   std_logic_vector (3 downto 0); 
+          LED       : out   std_logic_vector (7 downto 0); 
+          seg       : out   std_logic_vector (7 downto 0));
 end Top_layer;
 
 architecture BEHAVIORAL of Top_layer is
-   signal betty      : std_logic;
-   signal rand       : std_logic_vector (31 downto 0);
-   signal XLXN_27    : std_logic_vector (3 downto 0);
-   signal XLXN_56    : std_logic_vector (15 downto 0);
-   signal XLXN_69    : std_logic;
-   signal XLXN_75    : std_logic;
-   signal XLXN_76    : std_logic;
+   signal betty     : std_logic;
+   signal rand      : std_logic_vector (31 downto 0);
+   signal res       : std_logic;
+   signal XLXN_27   : std_logic_vector (3 downto 0);
+   signal XLXN_56   : std_logic_vector (15 downto 0);
+   signal XLXN_69   : std_logic;
+   signal XLXN_75   : std_logic;
+   signal XLXN_76   : std_logic;
    component toggle_button
       port ( clk      : in    std_logic; 
              btn      : in    std_logic; 
@@ -138,9 +139,10 @@ architecture BEHAVIORAL of Top_layer is
       port ( clk         : in    std_logic; 
              start       : in    std_logic; 
              rand_no     : in    std_logic_vector (12 downto 0); 
+             reset_timer : out   std_logic; 
              start_timer : out   std_logic; 
              LED         : out   std_logic_vector (7 downto 0); 
-             reset_timer : out   std_logic);
+             reset       : in    std_logic);
    end component;
    
 begin
@@ -153,14 +155,14 @@ begin
                 toggle=>open);
    
    XLXI_2 : toggle_button
-      port map (btn=>clear_time,
+      port map (btn=>reset,
                 clk=>betty,
-                debounce=>open,
+                debounce=>res,
                 pulse=>open,
                 toggle=>open);
    
    XLXI_3 : toggle_button
-      port map (btn=>lap,
+      port map (btn=>highscore,
                 clk=>betty,
                 debounce=>open,
                 pulse=>open,
@@ -187,9 +189,10 @@ begin
                 enable=>XLXN_75,
                 bcd(15 downto 0)=>XLXN_56(15 downto 0));
    
-   XLXI_22 : reaction_tester
+   XLXI_24 : reaction_tester
       port map (clk=>betty,
                 rand_no(12 downto 0)=>rand(24 downto 12),
+                reset=>res,
                 start=>XLXN_69,
                 LED(7 downto 0)=>LED(7 downto 0),
                 reset_timer=>XLXN_76,

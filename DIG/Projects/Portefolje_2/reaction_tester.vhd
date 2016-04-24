@@ -33,6 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity reaction_tester is
     Port ( clk : in  STD_LOGIC;
            rand_no : in  STD_LOGIC_VECTOR (12 downto 0);
+			  reset : in STD_LOGIC;
            start : in  STD_LOGIC;
            LED : out  STD_LOGIC_VECTOR (7 downto 0);
 			  reset_timer : out STD_LOGIC;
@@ -41,12 +42,13 @@ end reaction_tester;
 
 architecture Behavioral of reaction_tester is
 
-constant READY 		: std_logic_vector (2 downto 0) := "000";
-constant INIT_CNT 	: std_logic_vector (2 downto 0) := "001";
-constant LATCH			: std_logic_vector (2 downto 0) := "010";
-constant RAND_CNT		: std_logic_vector (2 downto 0) := "011";
-constant WAITING		: std_logic_vector (2 downto 0) := "100";
-constant FUCK_NO		: std_logic_vector (2 downto 0) := "101";
+constant READY 			: std_logic_vector (2 downto 0) := "000";
+constant INIT_CNT 		: std_logic_vector (2 downto 0) := "001";
+constant LATCH				: std_logic_vector (2 downto 0) := "010";
+constant RAND_CNT			: std_logic_vector (2 downto 0) := "011";
+constant WAITING			: std_logic_vector (2 downto 0) := "100";
+constant DISPLAY_SCORE 	: std_logic_vector (2 downto 0) := "101";
+constant FUCK_NO			: std_logic_vector (2 downto 0) := "110";
 
 signal state : std_logic_vector (2 downto 0) := "000";
 signal counter : integer range 0 to 10000 := 1000; 
@@ -65,8 +67,6 @@ begin
 				if start = '1' then
 					LED <= X"FF";
 					state <= INIT_CNT;
-					counter <= 1000;
-					reset_timer <= '1';
 				end if;
 				
 			when INIT_CNT =>
@@ -101,7 +101,14 @@ begin
 			when WAITING =>
 				if start = '1' then
 					start_timer <= '0';
+					state <= DISPLAY_SCORE;
+				end if;
+				
+			when DISPLAY_SCORE =>
+				if reset = '1' then
 					state <= READY;
+					counter <= 1000;
+					reset_timer <= '1';
 				end if;
 				
 			when FUCK_NO =>
