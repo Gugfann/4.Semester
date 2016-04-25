@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Top_layer.vhf
--- /___/   /\     Timestamp : 04/24/2016 16:08:38
+-- /___/   /\     Timestamp : 04/25/2016 21:32:24
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -84,24 +84,28 @@ library UNISIM;
 use UNISIM.Vcomponents.ALL;
 
 entity Top_layer is
-   port ( CLK       : in    std_logic; 
-          highscore : in    std_logic; 
-          reset     : in    std_logic; 
-          start     : in    std_logic; 
-          An        : out   std_logic_vector (3 downto 0); 
-          LED       : out   std_logic_vector (7 downto 0); 
-          seg       : out   std_logic_vector (7 downto 0));
+   port ( CLK        : in    std_logic; 
+          highscore  : in    std_logic; 
+          reset_game : in    std_logic; 
+          reset_hs   : in    std_logic; 
+          start      : in    std_logic; 
+          An         : out   std_logic_vector (3 downto 0); 
+          LED        : out   std_logic_vector (7 downto 0); 
+          seg        : out   std_logic_vector (7 downto 0));
 end Top_layer;
 
 architecture BEHAVIORAL of Top_layer is
-   signal betty     : std_logic;
-   signal rand      : std_logic_vector (31 downto 0);
-   signal res       : std_logic;
-   signal XLXN_27   : std_logic_vector (3 downto 0);
-   signal XLXN_56   : std_logic_vector (15 downto 0);
-   signal XLXN_69   : std_logic;
-   signal XLXN_75   : std_logic;
-   signal XLXN_76   : std_logic;
+   signal betty      : std_logic;
+   signal clear      : std_logic;
+   signal res1       : std_logic;
+   signal res2       : std_logic;
+   signal show_hs    : std_logic;
+   signal XLXN_27    : std_logic_vector (3 downto 0);
+   signal XLXN_69    : std_logic;
+   signal XLXN_86    : std_logic_vector (15 downto 0);
+   signal XLXN_87    : std_logic_vector (15 downto 0);
+   signal XLXN_89    : std_logic;
+   signal XLXN_112   : std_logic_vector (12 downto 0);
    component toggle_button
       port ( clk      : in    std_logic; 
              btn      : in    std_logic; 
@@ -123,11 +127,6 @@ architecture BEHAVIORAL of Top_layer is
              clk_1khz : out   std_logic);
    end component;
    
-   component randomizer
-      port ( clk      : in    std_logic; 
-             rand_num : out   std_logic_vector (31 downto 0));
-   end component;
-   
    component bcd_cnt_4x1_MUSER_Top_layer
       port ( clr    : in    std_logic; 
              clk    : in    std_logic; 
@@ -145,6 +144,20 @@ architecture BEHAVIORAL of Top_layer is
              reset       : in    std_logic);
    end component;
    
+   component hs_latch
+      port ( clk     : in    std_logic; 
+             show_hs : in    std_logic; 
+             reset   : in    std_logic; 
+             enable  : in    std_logic; 
+             bcd_in  : in    std_logic_vector (15 downto 0); 
+             bcd_out : out   std_logic_vector (15 downto 0));
+   end component;
+   
+   component randomizer
+      port ( clk      : in    std_logic; 
+             rand_num : out   std_logic_vector (12 downto 0));
+   end component;
+   
 begin
    XLXN_27(3 downto 0) <= x"8";
    XLXI_1 : toggle_button
@@ -155,21 +168,21 @@ begin
                 toggle=>open);
    
    XLXI_2 : toggle_button
-      port map (btn=>reset,
+      port map (btn=>reset_game,
                 clk=>betty,
-                debounce=>res,
+                debounce=>res1,
                 pulse=>open,
                 toggle=>open);
    
    XLXI_3 : toggle_button
       port map (btn=>highscore,
                 clk=>betty,
-                debounce=>open,
+                debounce=>show_hs,
                 pulse=>open,
                 toggle=>open);
    
    XLXI_4 : mux_display
-      port map (bcd(15 downto 0)=>XLXN_56(15 downto 0),
+      port map (bcd(15 downto 0)=>XLXN_87(15 downto 0),
                 clk=>betty,
                 dp(3 downto 0)=>XLXN_27(3 downto 0),
                 an(3 downto 0)=>An(3 downto 0),
@@ -179,24 +192,39 @@ begin
       port map (clk=>CLK,
                 clk_1khz=>betty);
    
-   XLXI_16 : randomizer
-      port map (clk=>betty,
-                rand_num(31 downto 0)=>rand(31 downto 0));
-   
    XLXI_19 : bcd_cnt_4x1_MUSER_Top_layer
       port map (clk=>betty,
-                clr=>XLXN_76,
-                enable=>XLXN_75,
-                bcd(15 downto 0)=>XLXN_56(15 downto 0));
+                clr=>clear,
+                enable=>XLXN_89,
+                bcd(15 downto 0)=>XLXN_86(15 downto 0));
    
    XLXI_24 : reaction_tester
       port map (clk=>betty,
-                rand_no(12 downto 0)=>rand(24 downto 12),
-                reset=>res,
+                rand_no(12 downto 0)=>XLXN_112(12 downto 0),
+                reset=>res1,
                 start=>XLXN_69,
                 LED(7 downto 0)=>LED(7 downto 0),
-                reset_timer=>XLXN_76,
-                start_timer=>XLXN_75);
+                reset_timer=>clear,
+                start_timer=>XLXN_89);
+   
+   XLXI_25 : hs_latch
+      port map (bcd_in(15 downto 0)=>XLXN_86(15 downto 0),
+                clk=>betty,
+                enable=>XLXN_89,
+                reset=>res2,
+                show_hs=>show_hs,
+                bcd_out(15 downto 0)=>XLXN_87(15 downto 0));
+   
+   XLXI_26 : toggle_button
+      port map (btn=>reset_hs,
+                clk=>betty,
+                debounce=>open,
+                pulse=>res2,
+                toggle=>open);
+   
+   XLXI_28 : randomizer
+      port map (clk=>betty,
+                rand_num(12 downto 0)=>XLXN_112(12 downto 0));
    
 end BEHAVIORAL;
 

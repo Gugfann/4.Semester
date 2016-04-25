@@ -1,0 +1,9 @@
+[Inputs]
+clk
+show_hs
+reset
+enable
+=bcd_in[15:0]=
+[Outputs]
+=bcd_out[15:0]=
+[BiDir]

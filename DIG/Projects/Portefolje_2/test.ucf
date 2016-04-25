@@ -54,6 +54,6 @@ NET "sw<7>" LOC = "R17"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = SW7
 # Buttons
 
 NET "start" LOC = "B18"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN0
-NET "reset" LOC = "D18"; # Bank = 1, Pin name = IP/VREF_1, Type = VREF, Sch name = BTN1
+NET "reset_game" LOC = "D18"; # Bank = 1, Pin name = IP/VREF_1, Type = VREF, Sch name = BTN1
 NET "highscore" LOC = "E18"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN2
-NET "btn<3>" LOC = "H13"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN3
+NET "reset_hs" LOC = "H13"; # Bank = 1, Pin name = IP, Type = INPUT, Sch name = BTN3

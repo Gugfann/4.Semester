@@ -24,26 +24,20 @@ entity randomizer is
     generic (width : integer :=  16); 
 port (
       clk : in std_logic;
-      rand_num : out std_logic_vector (31 downto 0)   --output vector            
+      rand_num : out std_logic_vector (12 downto 0)   --output vector            
     );
 end randomizer;
 
 architecture Behavioral of randomizer is
-		signal counter : integer range 0 to 13 := 0;
 begin
 	process(clk)
-		variable rand_temp : std_logic_vector(31 downto 0):= "10111010101010101100110111000100";
+		variable rand_temp : std_logic_vector(12 downto 0):= "1011101010100";
 		variable temp : std_logic := '0';
 	begin
 		if rising_edge(clk) then
-			--if counter = 13 then
-				temp := rand_temp(31) xor rand_temp(30);
-				rand_temp(31 downto 1) := rand_temp(30 downto 0);
+				temp := rand_temp(12) xor rand_temp(11);
+				rand_temp(12 downto 1) := rand_temp(11 downto 0);
 				rand_temp(0) := temp;
-				--counter <= 0;
-		--	else 
-				--counter <= counter + 1;
-			--end if;
 		end if;
 	rand_num <= rand_temp;
 	end process;
